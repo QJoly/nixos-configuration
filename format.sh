@@ -13,8 +13,8 @@ read -t 10 -p "Continue in 10 seconds..."
 
 cryptsetup luksFormat "${DISK}1"
 cryptsetup luksOpen "${DISK}1" nixos
-
-mkfs.ext4 -L nixos "${DISK}1"
+mkfs.ext4 -L nixos /dev/mapper/nixos
+mount /dev/mapper/nixos /mnt
 mkswap -L swap "${DISK}2"
 mkfs.fat -F 32 -n boot "${DISK}3"
 
