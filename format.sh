@@ -11,6 +11,9 @@ parted --list
 
 read -t 10 -p "Continue in 10 seconds..."
 
+cryptsetup luksFormat "${DISK}1"
+cryptsetup luksOpen "${DISK}1" nixos
+
 mkfs.ext4 -L nixos "${DISK}1"
 mkswap -L swap "${DISK}2"
 mkfs.fat -F 32 -n boot "${DISK}3"
