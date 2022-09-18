@@ -24,6 +24,15 @@
     [ { device = "/dev/disk/by-label/nixos"; }
     ];
 
+  boot.initrd.luks.devices = [
+    {
+      name = "root";
+      device = "/dev/disk/by-label/nixos";
+      allowDiscards = true;
+    }
+  ];
+
+
   networking.useDHCP = lib.mkDefault true;
 
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
