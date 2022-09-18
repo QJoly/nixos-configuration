@@ -24,11 +24,11 @@
     [ { device = "/dev/disk/by-label/nixos"; }
     ];
 
-  boot.initrd.luks.devices = [
+  boot.initrd.luks.devices = {
    luksroot = {
       device = "/dev/disk/by-label/nixos";
-     }
-  ];
+     };
+  };
 
 
   networking.useDHCP = lib.mkDefault true;
