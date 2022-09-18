@@ -25,11 +25,9 @@
     ];
 
   boot.initrd.luks.devices = [
-    {
-      name = "root";
+   luksroot = {
       device = "/dev/disk/by-label/nixos";
-      allowDiscards = true;
-    }
+     }
   ];
 
 
