@@ -33,6 +33,7 @@
     dmenu
     i3status
     i3lock
+    polybar
   ];
 
   services.xserver.desktopManager.xfce.enable = true; # to debug i3 when need it :) 
